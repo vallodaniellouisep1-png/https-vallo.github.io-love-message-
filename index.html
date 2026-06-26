@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Container */
+.container{
+    margin-top:40px;
+}
+
+/* Image */
+img{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Button */
+.reveal-btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.reveal-btn:hover{
+    background:#ff1e4d;
+}
+
+/* Hidden Message */
+.hidden{
+    opacity:0;
+    max-width:300px;
+    margin:20px auto;
+    font-size:18px;
+    line-height:1.6;
+    transition:opacity 1.5s ease;
+}
+
+.show{
+    opacity:1;
+}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    color:#fff;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-800px);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="32888.jpg" alt="Her Photo">
+
+    <h2>Hi Love ❤️</h2>
+
+    <button class="reveal-btn" onclick="revealMessage()">
+        💌 Tap to Read My Message
+    </button>
+
+    <div id="secret" class="hidden">
+        <p>
+        I just want you to know how much you mean to me.  
+        You bring happiness into my life in ways I never expected.  
+        </p>
+
+        <p>
+        Every moment with you feels special, and every memory with you is something I will always keep.  
+        </p>
+
+        <p>
+        No matter what happens, I’ll always choose you. 💖
+        </p>
+    </div>
+</div>
+
+<script>
+function revealMessage(){
+    document.getElementById("secret").classList.add("show");
+}
+
+/* Floating hearts */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{ heart.remove(); },5000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
